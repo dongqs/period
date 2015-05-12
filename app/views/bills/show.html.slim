@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @bill.name
+p
+  strong Category:
+  = @bill.category
+p
+  strong Price:
+  = @bill.price
+p
+  strong Comment:
+  = @bill.comment
+
+= link_to 'Edit', edit_bill_path(@bill)
+'|
+= link_to 'Back', bills_path

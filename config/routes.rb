@@ -1,4 +1,27 @@
 Rails.application.routes.draw do
+  resources :bills
+  resources :categories
+  resources :users, only: [:index] do
+    member do
+      put :role
+    end
+  end
+
+  devise_for :users
+  root to: 'static_pages#home'
+
+  get '/status' => 'static_pages#status'
+
+  get '/console' => 'static_pages#console'
+
+  # active_job
+  require 'sidekiq/web'
+  authenticate :user do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
+  # web_console
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
