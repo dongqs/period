@@ -9,8 +9,8 @@
 #
 
 FactoryGirl.define do
-  factory :category do
-    name "MyString"
-  end
 
+  factory :category do
+    sequence(:name) { |n| "cat #{n}" }
+  end
 end

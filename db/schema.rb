@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20150512141111) do
 
   create_table "bills", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",        null: false
     t.integer  "category_id"
-    t.float    "price"
+    t.float    "price",       null: false
     t.string   "comment"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150512141111) do
   add_index "bills", ["category_id"], name: "index_bills_on_category_id"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

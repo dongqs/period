@@ -12,11 +12,11 @@
 #
 
 FactoryGirl.define do
-  factory :bill do
-    name "MyString"
-category nil
-price 1.5
-comment "MyString"
-  end
 
+  factory :bill do
+    sequence(:name) { |n| "bill #{n}" }
+    category
+    price 1.5
+    comment "bleeding"
+  end
 end

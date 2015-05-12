@@ -33,7 +33,7 @@ RSpec.describe BillsController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: '' }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -108,14 +108,14 @@ RSpec.describe BillsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        @bill.attributes
+        { name: 'ooxx' }
       }
 
       it "updates the requested bill" do
         bill = Bill.create! valid_attributes
         put :update, {:id => bill.to_param, :bill => new_attributes}, valid_session
         bill.reload
-        skip("Add assertions for updated state")
+        expect(bill.name).to eq 'ooxx'
       end
 
       it "assigns the requested bill as @bill" do

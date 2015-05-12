@@ -9,4 +9,8 @@
 #
 
 class Category < ActiveRecord::Base
+
+  has_many :bills, dependent: :destroy
+
+  validates :name, presence: true
 end
