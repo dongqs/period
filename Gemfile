@@ -37,10 +37,10 @@ group :development, :test do
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
 end
 
 
+gem 'web-console', '~> 2.0'
 gem 'slim-rails', '3.0.1'
 gem 'therubyracer', '0.12.2'
 gem 'figaro', '1.1.1'
