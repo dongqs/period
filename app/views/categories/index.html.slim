@@ -1,11 +1,12 @@
-h1 Listing categories
+h1
+  | Listing categories
+  |  | 
+  = link_to 'New', new_category_path
 
 table.table
   thead
     tr
-      th
-        | Category 
-        = link_to 'add', new_category_path
+      th Category
 
   tbody
     - @categories.each do |category|

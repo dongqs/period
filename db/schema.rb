@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150513115127) do
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.integer  "user_id"
-    t.datetime "at",          default: '2015-05-13 11:55:34', null: false
+    t.datetime "at",          default: '2015-05-13 17:05:20', null: false
   end
 
   add_index "bills", ["category_id"], name: "index_bills_on_category_id"
