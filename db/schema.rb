@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512141111) do
+ActiveRecord::Schema.define(version: 20150512144108) do
 
   create_table "bills", force: :cascade do |t|
     t.string   "name",        null: false
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20150512141111) do
   end
 
   add_index "bills", ["category_id"], name: "index_bills_on_category_id"
+
+  create_table "bills_users", force: :cascade do |t|
+    t.integer  "bill_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bills_users", ["bill_id", "user_id"], name: "index_bills_users_on_bill_id_and_user_id"
+  add_index "bills_users", ["user_id", "bill_id"], name: "index_bills_users_on_user_id_and_bill_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       null: false
