@@ -3,17 +3,21 @@ h1 Listing bills
 table.table
   thead
     tr
+      th Category
       th
         | Bill 
         = link_to 'add', new_bill_path
-      th Category
       th Price
       th Comment
+      th Benefactor
+      th Beneficiaries
 
   tbody
     - @bills.each do |bill|
       tr
+        td = link_for bill.category
         td = link_for bill
-        td = bill.category.name
         td = bill.price
         td = bill.comment
+        td = ''
+        td = bill.users.map(&:name).join(',')

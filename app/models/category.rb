@@ -10,7 +10,7 @@
 
 class Category < ActiveRecord::Base
 
-  has_many :bills, dependent: :destroy
+  has_many :bills
 
   validates :name, presence: true
 end

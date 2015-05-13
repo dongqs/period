@@ -2,10 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
     = f.association :category
+    = f.input :name
     = f.input :price
     = f.input :comment
+    = f.association :users, as: :check_boxes, label: 'Beneficiaries'
 
   .form-actions
     = f.button :submit
