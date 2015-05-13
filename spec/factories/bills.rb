@@ -19,5 +19,6 @@ FactoryGirl.define do
     category
     price 1.5
     comment "bleeding"
+    sequence(:at) { |n| Time.now - n.day }
   end
 end

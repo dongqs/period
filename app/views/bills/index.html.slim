@@ -4,6 +4,7 @@ table.table
   thead
     tr
       th Category
+      th At
       th
         | Bill 
         = link_to 'add', new_bill_path
@@ -16,6 +17,7 @@ table.table
     - @bills.each do |bill|
       tr
         td = link_for bill.category
+        td = bill.at.to_date
         td = link_for bill
         td = bill.price
         td = bill.comment

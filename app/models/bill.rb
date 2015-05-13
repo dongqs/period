@@ -19,4 +19,5 @@ class Bill < ActiveRecord::Base
 
   validates :name, presence: true
   validates :price, presence: true
+  validates :at, presence: true
 end
