@@ -19,5 +19,5 @@ table.table
         td = link_for bill
         td = bill.price
         td = bill.comment
-        td = ''
+        td = [*bill.user].map(&:name).join(',')
         td = bill.users.map(&:name).join(',')

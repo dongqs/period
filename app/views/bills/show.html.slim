@@ -18,6 +18,8 @@ p
   strong Comment:
   = @bill.comment
 p
+  strong Benefactor:
+  = [*@bill.user].map(&:name).join(',')
+p
   strong Beneficiaries:
   = @bill.users.map(&:name).join(',')
-
