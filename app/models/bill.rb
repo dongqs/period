@@ -16,7 +16,7 @@
 
 class Bill < ActiveRecord::Base
 
-  STATUSES = ['paid', 'abandoned', 'wishing']
+  STATUSES = ['paid', 'abandoned', 'pending']
   include StandardStatus
 
   belongs_to :category
