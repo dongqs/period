@@ -20,4 +20,10 @@ class Bill < ActiveRecord::Base
   validates :name, presence: true
   validates :price, presence: true
   validates :at, presence: true
+
+  after_initialize :default
+
+  def default
+    self.at ||= Time.now
+  end
 end

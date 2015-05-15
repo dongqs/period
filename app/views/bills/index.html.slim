@@ -6,9 +6,9 @@ h1
 table.table
   thead
     tr
-      th Category
-      th At
       th Bill
+      th At
+      th Category
       th Price
       th Comment
       th Benefactor
@@ -17,9 +17,9 @@ table.table
   tbody
     - @bills.each do |bill|
       tr
-        td = link_for bill.category
-        td = bill.at.to_date
         td = link_for bill
+        td = bill.at.to_date
+        td = bill.category.name
         td = bill.price
         td = bill.comment
         td = [*bill.user].map(&:name).join(',')
