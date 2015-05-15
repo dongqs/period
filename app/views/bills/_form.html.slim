@@ -2,6 +2,7 @@
   = f.error_notification
 
   .form-inputs
+    = f.input :status, collection: Bill::STATUSES, as: :radio_buttons
     = f.association :category
     = f.input :name
     = f.input :price

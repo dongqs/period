@@ -6,6 +6,7 @@ h1
 table.table
   thead
     tr
+      th Status
       th Bill
       th At
       th Category
@@ -17,6 +18,7 @@ table.table
   tbody
     - @bills.each do |bill|
       tr
+        td = bill.status
         td = link_for bill
         td = bill.at.to_date
         td = bill.category.name

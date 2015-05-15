@@ -10,9 +10,15 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  at          :datetime         default(Wed, 13 May 2015 19:55:34 CST +08:00), not null
+#  status      :string           default("paid"), not null
 #
 
 class Bill < ActiveRecord::Base
+
+  STATUSES = ['paid', 'abandoned', 'wishing']
+  include StandardStatus
+
   belongs_to :category
   belongs_to :user
   has_and_belongs_to_many :users
