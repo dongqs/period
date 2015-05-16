@@ -20,4 +20,5 @@ table.table
       tr
         th = user.username
         th = Bill.where(user_id: user).paid.sum(:price).round
-        th = user.bills.paid.sum(:price).round
+        th = BillsUser.where(user: user, bill: user.bills).sum(:price).round
+

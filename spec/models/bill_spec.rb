@@ -23,6 +23,7 @@ RSpec.describe Bill, type: :model do
   it { should belong_to :category }
   it { should belong_to :user }
   it { should have_and_belong_to_many :users }
+  it { should have_many :bills_users }
 
   it { should validate_presence_of :name }
   it { should validate_presence_of :price }
@@ -36,5 +37,12 @@ RSpec.describe Bill, type: :model do
   it "update categories weight" do
     bill = FactoryGirl.create :bill
     expect(bill.category.weight).to eq 1
+  end
+
+  it "set price of bills_users" do
+    u1 = FactoryGirl.create :user
+    u2 = FactoryGirl.create :user
+    bill = FactoryGirl.create :bill, users: [u1, u2], price: 2.0
+    expect(BillsUser.first.price).to eq 1.0
   end
 end

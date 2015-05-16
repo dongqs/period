@@ -22,6 +22,7 @@ class Bill < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   has_and_belongs_to_many :users
+  has_many :bills_users
 
   validates :name, presence: true
   validates :price, presence: true
@@ -31,9 +32,15 @@ class Bill < ActiveRecord::Base
     Time.now
   end
 
-  after_commit :update_category_weight
+  after_commit :update_category_weight, :update_bills_users
 
   def update_category_weight
     category.update_weight if category
+  end
+
+  def update_bills_users
+    bills_users.each do |bu|
+      bu.update_attribute :price, price / bills_users.count
+    end
   end
 end
