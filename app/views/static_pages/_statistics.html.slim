@@ -4,7 +4,7 @@ table.table
       th Category
       th = "#{Bill.paid.sum(:price).round} in total"
   tbody
-    - Category.find_each do |category|
+    - Category.order(weight: :desc).each do |category|
       tr
         th = category.name
         th = category.bills.paid.sum(:price).round
