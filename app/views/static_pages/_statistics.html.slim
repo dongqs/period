@@ -1,0 +1,10 @@
+table.table
+  thead
+    tr
+      th Category
+      th Paid
+  tbody
+    - Category.find_each do |category|
+      tr
+        th = category.name
+        th = category.bills.paid.sum(:price)
