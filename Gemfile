@@ -56,6 +56,8 @@ gem 'devise_ldap_authenticatable', '0.8.4'
 gem 'rolify', '4.0.0'
 gem 'sidekiq', '3.3.4'
 gem 'sinatra', '1.4.6'
+gem 'default_value_for'
+
 group :development do
   gem 'better_errors', '2.1.1'
   gem 'binding_of_caller', '0.7.2'

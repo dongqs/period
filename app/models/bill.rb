@@ -27,9 +27,7 @@ class Bill < ActiveRecord::Base
   validates :price, presence: true
   validates :at, presence: true
 
-  after_initialize :default
-
-  def default
-    self.at ||= Time.now
+  default_value_for :at do
+    Time.now
   end
 end

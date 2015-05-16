@@ -28,4 +28,8 @@ RSpec.describe Bill, type: :model do
   it { should validate_presence_of :price }
   it { should validate_presence_of :at }
   it { should validate_presence_of :status }
+
+  it "should default at to now" do
+    expect((Time.now - Bill.new.at).to_i).to eq 0
+  end
 end
