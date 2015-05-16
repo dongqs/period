@@ -7,4 +7,4 @@ table.table
     - Category.find_each do |category|
       tr
         th = category.name
-        th = category.bills.paid.sum(:price)
+        th = category.bills.paid.sum(:price).round(2)
