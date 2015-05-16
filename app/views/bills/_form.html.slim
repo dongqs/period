@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.input :status, collection: Bill::STATUSES, as: :radio_buttons
-    = f.association :category
+    = f.association :category, collection: Category.order(weight: :desc)
     = f.input :name
     = f.input :price
     = f.input :comment

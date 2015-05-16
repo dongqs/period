@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515045209) do
+ActiveRecord::Schema.define(version: 20150516092224) do
 
   create_table "bills", force: :cascade do |t|
     t.string   "name",                                        null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150515045209) do
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.integer  "user_id"
-    t.datetime "at",          default: '2015-05-13 11:55:34', null: false
+    t.datetime "at",          default: '2015-05-13 17:05:20', null: false
     t.string   "status",      default: "paid",                null: false
   end
 
@@ -39,9 +39,10 @@ ActiveRecord::Schema.define(version: 20150515045209) do
   add_index "bills_users", ["user_id", "bill_id"], name: "index_bills_users_on_user_id_and_bill_id"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "weight",     default: 0, null: false
   end
 
   create_table "roles", force: :cascade do |t|

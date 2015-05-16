@@ -10,7 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
-#  at          :datetime         default(Wed, 13 May 2015 19:55:34 CST +08:00), not null
+#  at          :datetime         default(Thu, 14 May 2015 01:05:20 CST +08:00), not null
 #  status      :string           default("paid"), not null
 #
 

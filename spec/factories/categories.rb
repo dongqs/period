@@ -6,6 +6,7 @@
 #  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  weight     :integer          default(0), not null
 #
 
 FactoryGirl.define do
