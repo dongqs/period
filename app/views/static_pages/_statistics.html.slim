@@ -2,9 +2,22 @@ table.table
   thead
     tr
       th Category
-      th Paid
+      th = "#{Bill.paid.sum(:price).round} in total"
   tbody
     - Category.find_each do |category|
       tr
         th = category.name
         th = category.bills.paid.sum(:price).round
+
+table.table
+  thead
+    tr
+      th Member
+      th Paid
+      th Got
+  tbody
+    - User.find_each do |user|
+      tr
+        th = user.username
+        th = Bill.where(user_id: user).paid.sum(:price).round
+        th = user.bills.paid.sum(:price).round
