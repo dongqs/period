@@ -7,8 +7,14 @@ table.table
   thead
     tr
       th Category
+      th This Week
+      th This month
+      th Total
 
   tbody
     - @categories.each do |category|
       tr
         td = link_for category
+        td = category.bills.where(at: Time.now.all_week).sum(:price)
+        td = category.bills.where(at: Time.now.all_month).sum(:price)
+        td = category.bills.sum(:price)
