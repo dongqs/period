@@ -15,6 +15,6 @@ table.table
     - @categories.each do |category|
       tr
         td = link_for category
-        td = category.bills.where(at: Time.now.all_week).sum(:price)
-        td = category.bills.where(at: Time.now.all_month).sum(:price)
-        td = category.bills.sum(:price)
+        td = category.bills.where(at: Time.now.all_week).sum(:price).round
+        td = category.bills.where(at: Time.now.all_month).sum(:price).round
+        td = category.bills.sum(:price).round
