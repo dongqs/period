@@ -15,10 +15,12 @@ table.table
       th Member
       th Paid
       th Got
+      th Balance
   tbody
     - User.find_each do |user|
       tr
         th = user.username
-        th = Bill.where(user_id: user).paid.sum(:price).round
-        th = BillsUser.where(user: user, bill: user.bills).sum(:price).round
+        th = paid = Bill.where(user_id: user).paid.sum(:price).round
+        th = got = BillsUser.where(user: user, bill: user.bills).sum(:price).round
+        th = got - paid
 
